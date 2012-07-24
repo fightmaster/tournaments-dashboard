@@ -1,0 +1,23 @@
+{% extends 'MopaBootstrapBundle::base.html.twig' %}
+
+{% block head_style %}
+{% stylesheets filter='cssrewrite,?yui_css'
+   '@MopaBootstrapBundle/Resources/bootstrap/docs/assets/css/bootstrap.css'
+   '@CraueFormFlowBundle/Resources/assets/css/buttons.css'
+%}
+<link href="{{ asset_url }}" type="text/css" rel="stylesheet"
+      media="screen" />
+{% endstylesheets %}
+{% endblock head_style %}
+{% block navbar %}
+{% endblock navbar %}
+{% block content %}
+<div class="span9">
+    {% block content_body %} {% endblock content_body %}
+</div>
+<div class="span3">
+    {% block content_sidebar %}
+    <h2>Sidebar</h2>
+    {% endblock content_sidebar %}
+</div>
+{% endblock%}

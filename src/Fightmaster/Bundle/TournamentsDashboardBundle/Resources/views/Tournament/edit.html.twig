@@ -1,0 +1,44 @@
+{% extends 'FightmasterTournamentsDashboardBundle::base.html.twig' %}
+{% block fightmaster_tournaments_dashboard_content %}
+<h1>Tournament edit</h1>
+
+
+<div>
+    Steps:
+    {% include 'CraueFormFlowBundle:FormFlow:stepList.html.twig' %}
+</div>
+<form action="{{ path('tournament_update', { 'id': tournament.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+    {% include 'CraueFormFlowBundle:FormFlow:stepField.html.twig' %}
+
+    {{ form_errors(edit_form) }}
+
+    {% if flow.getCurrentStep() == 2 %}
+    <div>
+        You have to agree to the terms of service to register.<br />
+        {{ form_row(edit_form.limitOfMembers) }}
+    </div>
+    <div>
+        You have ms of service to register.<br />
+        {{ form_row(edit_form.donation) }}
+    </div>
+    {% endif %}
+
+    {{ form_rest(edit_form) }}
+
+    {% include 'CraueFormFlowBundle:FormFlow:buttons.html.twig' %}
+</form>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('tournament') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('tournament_delete', { 'id': tournament.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+</ul>
+{% endblock fightmaster_tournaments_dashboard_content %}

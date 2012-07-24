@@ -1,0 +1,7 @@
+tournaments_dashboard_bundle:
+    tournament:
+        form:
+            flow:
+                steps:
+                    tournament: Create Tournament
+                    stage: Create Tournament Stage

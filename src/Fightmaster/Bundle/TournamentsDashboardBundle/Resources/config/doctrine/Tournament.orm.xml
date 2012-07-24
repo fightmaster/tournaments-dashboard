@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Fightmaster\Bundle\TournamentsDashboardBundle\Entity\Tournament" table="tournaments">
+    <change-tracking-policy>DEFERRED_EXPLICIT</change-tracking-policy>
+    <id name="id" type="integer" column="id">
+      <generator strategy="AUTO"/>
+    </id>
+    <field name="name" type="string" column="name" length="100"/>
+    <field name="slug" type="string" column="slug" length="100"/>
+    <field name="limitOfMembers" type="integer" column="limit_of_members" nullable="true"/>
+    <field name="donation" type="integer" column="donation" nullable="true"/>
+    <lifecycle-callbacks/>
+      <indexes>
+          <index name="tournament_slug_idx" columns="slug"/>
+      </indexes>
+    <unique-constraints>
+        <unique-constraint name="tournament_fk_name" columns="name"/>
+        <unique-constraint name="tournament_fk_slug" columns="slug"/>
+    </unique-constraints>
+    <one-to-many field="stages" target-entity="Fightmaster\Bundle\TournamentsDashboardBundle\Entity\Stage" mapped-by="tournament">
+        <cascade>
+            <cascade-all/>
+        </cascade>
+        <order-by>
+            <order-by-field name="number"/>
+        </order-by>
+    </one-to-many>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Fightmaster\Bundle\TournamentsDashboardBundle\Entity\StageItemMember" table="stage_item_members">
+    <change-tracking-policy>DEFERRED_EXPLICIT</change-tracking-policy>
+    <id name="id" type="integer" column="id">
+      <generator strategy="AUTO"/>
+    </id>
+    <field name="name" type="string" column="name" length="100"/>
+    <field name="externalId" type="string" column="externalId" length="255"/>
+    <field name="externalName" type="string" column="externalName" length="255"/>
+    <lifecycle-callbacks/>
+    <indexes>
+        <index name="stage_item_member_external_id_idx" columns="externalId"/>
+    </indexes>
+    <many-to-one field="stageItem" target-entity="Fightmaster\Bundle\TournamentsDashboardBundle\Entity\StageItem" inversed-by="stageItemMembers">
+      <join-column name="stage_item" nullable="false" referenced-column-name="id"/>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

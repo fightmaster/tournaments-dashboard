@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<routes xmlns="http://symfony.com/schema/routing"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
+
+    <route id="tournament" pattern="/">
+        <default key="_controller">FightmasterTournamentsDashboardBundle:Tournament:index</default>
+    </route>
+
+    <route id="tournament_show" pattern="/{id}/show">
+        <default key="_controller">FightmasterTournamentsDashboardBundle:Tournament:show</default>
+    </route>
+
+    <route id="tournament_new" pattern="/new">
+        <default key="_controller">FightmasterTournamentsDashboardBundle:Tournament:new</default>
+    </route>
+
+    <route id="tournament_create" pattern="/create">
+        <default key="_controller">FightmasterTournamentsDashboardBundle:Tournament:create</default>
+        <requirement key="_method">post</requirement>
+    </route>
+
+    <route id="tournament_edit" pattern="/{id}/edit">
+        <default key="_controller">FightmasterTournamentsDashboardBundle:Tournament:edit</default>
+    </route>
+
+    <route id="tournament_update" pattern="/{id}/update">
+        <default key="_controller">FightmasterTournamentsDashboardBundle:Tournament:update</default>
+        <requirement key="_method">post</requirement>
+    </route>
+
+    <route id="tournament_delete" pattern="/{id}/delete">
+        <default key="_controller">FightmasterTournamentsDashboardBundle:Tournament:delete</default>
+        <requirement key="_method">post</requirement>
+    </route>
+
+</routes>

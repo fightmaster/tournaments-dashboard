@@ -1,0 +1,4 @@
+FightmasterTournamentsDashboardBundle_tournament:
+    resource: "@FightmasterTournamentsDashboardBundle/Resources/config/routing/tournament.xml"
+    prefix:   /tournament
+

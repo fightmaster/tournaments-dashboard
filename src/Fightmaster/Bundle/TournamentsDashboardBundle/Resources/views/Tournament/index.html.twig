@@ -1,0 +1,46 @@
+{% extends 'FightmasterTournamentsDashboardBundle::base.html.twig' %}
+{% block fightmaster_tournaments_dashboard_content %}
+<h1>Tournament list</h1>
+
+<table class="records_list">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Slug</th>
+            <th>Limitofmembers</th>
+            <th>Donation</th>
+            <th>Id</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for tournament in tournaments %}
+        <tr>
+            <td><a href="{{ path('tournament_show', { 'id': tournament.id }) }}">{{ tournament.name }}</a></td>
+            <td>{{ tournament.slug }}</td>
+            <td>{{ tournament.limitOfMembers }}</td>
+            <td>{{ tournament.donation }}</td>
+            <td>{{ tournament.id }}</td>
+            <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('tournament_show', { 'id': tournament.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('tournament_edit', { 'id': tournament.id }) }}">edit</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<ul>
+    <li>
+        <a href="{{ path('tournament_new') }}">
+            Create a new entry
+        </a>
+    </li>
+</ul>
+{% endblock fightmaster_tournaments_dashboard_content %}

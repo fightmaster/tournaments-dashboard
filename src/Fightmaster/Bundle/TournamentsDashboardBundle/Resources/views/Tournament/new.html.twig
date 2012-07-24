@@ -1,0 +1,39 @@
+{% extends 'FightmasterTournamentsDashboardBundle::base.html.twig' %}
+{% form_theme form 'MopaBootstrapBundle:Form:fields.html.twig' %}
+{% block fightmaster_tournaments_dashboard_content %}
+<h1>Tournament create</h1>
+<div>
+    Steps:
+    {% include 'MopaBootstrapBundle:Form:formflow_stepList.html.twig' %}
+</div>
+<form id="test" action="{{ path('tournament_create') }}" method="post" {{ form_enctype(form) }}>
+    {% include 'CraueFormFlowBundle:FormFlow:stepField.html.twig' with {'formident': '#test'} %}
+
+
+    {{ form_errors(form) }}
+
+    {% if flow.getCurrentStep() == 2 %}
+    <div>
+        You have to agree to the terms of service to register.<br />
+        {{ form_row(form.limitOfMembers) }}
+    </div>
+    <div>
+        You have ms of service to register.<br />
+        {{ form_row(form.donation) }}
+    </div>
+    {% endif %}
+
+    {{ form_rest(form) }}
+
+    {% include 'MopaBootstrapBundle:Form:formflow_buttons.html.twig' %}
+</form>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('tournament') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock fightmaster_tournaments_dashboard_content %}
+

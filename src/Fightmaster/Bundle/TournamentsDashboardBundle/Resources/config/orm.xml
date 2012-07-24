@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+
+<!--
+ This file is part of the SarSportApplicationBundle package.
+
+ (c) Dmitry Petrov aka fightmaster <old.fightmaster@gmail.com>
+
+ This source file is subject to the MIT license that is bundled
+ with this source code in the file LICENSE.
+-->
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="fightmaster_tournaments_dashboard.manager.tournament.class">Fightmaster\Model\Manager\DoctrineManager</parameter>
+        <parameter key="fightmaster_tournaments_dashboard.entity.tournament.class">FightmasterTournamentsDashboardBundle:Tournament</parameter>
+    </parameters>
+
+    <services>
+        <service id="fightmaster_tournaments_dashboard.entity_manager" factory-service="doctrine" factory-method="getEntityManager" class="Doctrine\ORM\EntityManager" public="false">
+            <argument>default</argument>
+        </service>
+
+        <service id="fightmaster_tournaments_dashboard.manager.tournament" class="%fightmaster_tournaments_dashboard.manager.tournament.class%">
+            <argument type="service" id="fightmaster_tournaments_dashboard.entity_manager" />
+            <argument>%fightmaster_tournaments_dashboard.entity.tournament.class%</argument>
+        </service>
+    </services>
+</container>

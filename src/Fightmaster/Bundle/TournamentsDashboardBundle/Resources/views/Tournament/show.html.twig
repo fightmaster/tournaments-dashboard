@@ -1,0 +1,48 @@
+{% extends 'FightmasterTournamentsDashboardBundle::base.html.twig' %}
+{% block fightmaster_tournaments_dashboard_content %}
+<h1>Tournament</h1>
+
+<table class="record_properties">
+    <tbody>
+        <tr>
+            <th>Name</th>
+            <td>{{ tournament.name }}</td>
+        </tr>
+        <tr>
+            <th>Slug</th>
+            <td>{{ tournament.slug }}</td>
+        </tr>
+        <tr>
+            <th>Limitofmembers</th>
+            <td>{{ tournament.limitOfMembers }}</td>
+        </tr>
+        <tr>
+            <th>Donation</th>
+            <td>{{ tournament.donation }}</td>
+        </tr>
+        <tr>
+            <th>Id</th>
+            <td>{{ tournament.id }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('tournament') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('tournament_edit', { 'id': tournament.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('tournament_delete', { 'id': tournament.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+</ul>
+{% endblock fightmaster_tournaments_dashboard_content %}

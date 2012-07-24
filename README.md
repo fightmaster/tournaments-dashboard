@@ -1,0 +1,4 @@
+tournaments-dashboard
+=====================
+
+Tournaments dashboard
