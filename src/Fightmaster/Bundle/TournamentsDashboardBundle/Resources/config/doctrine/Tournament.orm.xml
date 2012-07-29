@@ -9,6 +9,12 @@
     <field name="slug" type="string" column="slug" length="100"/>
     <field name="limitOfMembers" type="integer" column="limit_of_members" nullable="true"/>
     <field name="donation" type="integer" column="donation" nullable="true"/>
+    <lifecycle-callbacks>
+        <lifecycle-callback type="postLoad" method="separeteStages"/>
+    </lifecycle-callbacks>
+    <indexes>
+        <index name="tournament_slug_idx" columns="slug"/>
+    </indexes>
     <lifecycle-callbacks/>
       <indexes>
           <index name="tournament_slug_idx" columns="slug"/>
@@ -22,7 +28,7 @@
             <cascade-all/>
         </cascade>
         <order-by>
-            <order-by-field name="number"/>
+            <order-by-field name="number" direction="ASC"/>
         </order-by>
     </one-to-many>
   </entity>

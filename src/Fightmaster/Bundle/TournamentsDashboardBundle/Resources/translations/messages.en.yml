@@ -1,7 +1,17 @@
-tournaments_dashboard_bundle:
-    tournament:
-        form:
-            flow:
-                steps:
-                    tournament: Create Tournament
-                    stage: Create Tournament Stage
+fightmaster:
+    tournaments_dashboard_bundle:
+        tournament:
+            form:
+                flow:
+                    steps:
+                        tournament: Create Tournament
+                        stage: Create Tournament Stage
+        stage:
+            name: Stage Name
+            number: Number
+            type:
+                group: Group
+                playoff: Playoff
+            limit_of_members: Limit of Members
+            laps: Laps
+

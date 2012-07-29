@@ -12,8 +12,8 @@
     <indexes>
         <index name="stage_item_member_external_id_idx" columns="externalId"/>
     </indexes>
-    <many-to-one field="stageItem" target-entity="Fightmaster\Bundle\TournamentsDashboardBundle\Entity\StageItem" inversed-by="stageItemMembers">
-      <join-column name="stage_item" nullable="false" referenced-column-name="id"/>
+    <many-to-one field="stageItem" target-entity="Fightmaster\Bundle\TournamentsDashboardBundle\Entity\StageItem" inversed-by="stageItemMembers" orphan-removal="true">
+      <join-column name="stage_item" nullable="false" referenced-column-name="id" on-delete="CASCADE" on-update="CASCADE"/>
     </many-to-one>
   </entity>
 </doctrine-mapping>

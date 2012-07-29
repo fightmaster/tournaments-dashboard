@@ -11,28 +11,25 @@
       <generator strategy="AUTO"/>
     </id>
     <field name="name" type="string" column="name" length="50"/>
-    <field name="slug" type="string" column="slug" length="100"/>
     <field name="number" type="integer" column="number"/>
     <field name="limitOfMembers" type="integer" column="limit_of_members"/>
     <field name="laps" type="integer" column="laps"/>
     <lifecycle-callbacks/>
     <indexes>
-        <index name="stage_slug_idx" columns="slug"/>
         <index name="stage_number_idx" columns="number"/>
     </indexes>
     <unique-constraints>
       <unique-constraint name="stage_fk_name" columns="name"/>
-      <unique-constraint name="stage_fk_slug" columns="slug"/>
     </unique-constraints>
-    <many-to-one field="tournament" target-entity="Fightmaster\Bundle\TournamentsDashboardBundle\Entity\Tournament" inversed-by="stages">
-      <join-column name="tournament" nullable="false" referenced-column-name="id"/>
+    <many-to-one field="tournament" target-entity="Fightmaster\Bundle\TournamentsDashboardBundle\Entity\Tournament" inversed-by="stages" orphan-removal="true">
+      <join-column name="tournament" nullable="false" referenced-column-name="id" on-delete="CASCADE" on-update="CASCADE"/>
     </many-to-one>
     <one-to-many field="stageItems" target-entity="Fightmaster\Bundle\TournamentsDashboardBundle\Entity\StageItem" mapped-by="stage">
         <cascade>
             <cascade-all/>
         </cascade>
         <order-by>
-            <order-by-field name="number"/>
+            <order-by-field name="number" direction="ASC"/>
         </order-by>
     </one-to-many>
   </entity>

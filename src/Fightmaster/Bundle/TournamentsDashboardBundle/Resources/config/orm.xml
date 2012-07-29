@@ -16,6 +16,8 @@
     <parameters>
         <parameter key="fightmaster_tournaments_dashboard.manager.tournament.class">Fightmaster\Model\Manager\DoctrineManager</parameter>
         <parameter key="fightmaster_tournaments_dashboard.entity.tournament.class">FightmasterTournamentsDashboardBundle:Tournament</parameter>
+        <parameter key="fightmaster_tournaments_dashboard.manager.stage.class">Fightmaster\Bundle\TournamentsDashboardBundle\Manager\StageManager</parameter>
+        <parameter key="fightmaster_tournaments_dashboard.entity.stage.class">FightmasterTournamentsDashboardBundle:Stage</parameter>
     </parameters>
 
     <services>
@@ -26,6 +28,10 @@
         <service id="fightmaster_tournaments_dashboard.manager.tournament" class="%fightmaster_tournaments_dashboard.manager.tournament.class%">
             <argument type="service" id="fightmaster_tournaments_dashboard.entity_manager" />
             <argument>%fightmaster_tournaments_dashboard.entity.tournament.class%</argument>
+        </service>
+        <service id="fightmaster_tournaments_dashboard.manager.stage" class="%fightmaster_tournaments_dashboard.manager.stage.class%">
+            <argument type="service" id="fightmaster_tournaments_dashboard.entity_manager" />
+            <argument>%fightmaster_tournaments_dashboard.entity.stage.class%</argument>
         </service>
     </services>
 </container>

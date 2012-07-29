@@ -12,8 +12,8 @@
     <indexes>
         <index name="stage_item_number_idx" columns="number"/>
     </indexes>
-    <many-to-one field="stage" target-entity="Fightmaster\Bundle\TournamentsDashboardBundle\Entity\Stage" inversed-by="stageItems">
-        <join-column name="stage" nullable="false" referenced-column-name="id"/>
+    <many-to-one field="stage" target-entity="Fightmaster\Bundle\TournamentsDashboardBundle\Entity\Stage" inversed-by="stageItems" orphan-removal="true">
+        <join-column name="stage" nullable="false" referenced-column-name="id" on-delete="CASCADE" on-update="CASCADE"/>
     </many-to-one>
       <one-to-many field="stageItemMembers" target-entity="Fightmaster\Bundle\TournamentsDashboardBundle\Entity\StageItemMember" mapped-by="stageItem">
           <cascade>

@@ -7,6 +7,7 @@
     
     <parameters>
         <parameter key="fightmaster_tournaments_dashboard.service.tournament.class">Fightmaster\Bundle\TournamentsDashboardBundle\Service\TournamentService</parameter>
+        <parameter key="fightmaster_tournaments_dashboard.service.stage.class">Fightmaster\Bundle\TournamentsDashboardBundle\Service\StageService</parameter>
         <parameter key="fightmaster_tournaments_dashboard.form.flow.type.tournament.class">Fightmaster\Bundle\TournamentsDashboardBundle\Form\Flow\TournamentType</parameter>
         <parameter key="fightmaster_tournaments_dashboard.form.flow.tournament.class">Fightmaster\Bundle\TournamentsDashboardBundle\Form\Flow\TournamentFlow</parameter>
     </parameters>
@@ -17,6 +18,12 @@
                  class="%fightmaster_tournaments_dashboard.service.tournament.class%">
             <argument type="service" id="logger" />
             <argument type="service" id="fightmaster_tournaments_dashboard.manager.tournament" />
+            <argument type="service" id="fightmaster_tournaments_dashboard.service.stage" />
+        </service>
+        <service id="fightmaster_tournaments_dashboard.service.stage"
+                 class="%fightmaster_tournaments_dashboard.service.stage.class%">
+            <argument type="service" id="logger" />
+            <argument type="service" id="fightmaster_tournaments_dashboard.manager.stage" />
         </service>
 
         <service id="fightmaster_tournaments_dashboard.form.flow.type.tournament"

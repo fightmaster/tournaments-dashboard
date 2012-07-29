@@ -1,1 +1,16 @@
-
+fightmaster:
+    tournaments_dashboard_bundle:
+        tournament:
+            form:
+                flow:
+                    steps:
+                        tournament: Создание турнира
+                        stage: Создание стадии турнира
+        stage:
+            name: Название
+            number: Номер
+            type:
+                group: Группа
+                playoff: Плейофф
+            limit_of_members: Кол-во участников
+            laps: Круги

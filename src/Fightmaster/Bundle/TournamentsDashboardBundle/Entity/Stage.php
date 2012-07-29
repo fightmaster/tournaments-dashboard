@@ -27,11 +27,6 @@ abstract class Stage
     private $name;
 
     /**
-     * @var string $slug
-     */
-    private $slug;
-
-    /**
      * @var Tournament $tournament
      */
     private $tournament;
@@ -88,8 +83,6 @@ abstract class Stage
         }
     }
 
-
-
     /**
      * Get id
      *
@@ -121,29 +114,6 @@ abstract class Stage
     public function getName()
     {
         return $this->name;
-    }
-
-    /**
-     * Set slug
-     *
-     * @param string $slug
-     * @return Stage
-     */
-    public function setSlug($slug)
-    {
-        $this->slug = $slug;
-
-        return $this;
-    }
-
-    /**
-     * Get slug
-     *
-     * @return string 
-     */
-    public function getSlug()
-    {
-        return $this->slug;
     }
 
     /**
