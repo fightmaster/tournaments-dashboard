@@ -38,6 +38,11 @@
 {% endblock fightmaster_tournaments_dashboard_content %}
 
 {% block javascripts %}
+{% javascripts
+'@FightmasterJQueryTranslitBundle/Resources/public/js/jquery.translit.js'
+%}
+<script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
 <script type="text/javascript">
     // Get the div that holds the collection of stages
     var groupCollectionHolder = $('div#fightmaster_bundle_tournamentsdashboardbundle_flow_tournamenttype_groupStages');
@@ -49,6 +54,7 @@
     var newLinkPlayoffStage = $('<div></div>').append(addPlayoffStage);
 
     jQuery(document).ready(function() {
+        $('#fightmaster_bundle_tournamentsdashboardbundle_flow_tournamenttype_name').translit({destination: 'fightmaster_bundle_tournamentsdashboardbundle_flow_tournamenttype_slug'});
 // add the "add a tag" anchor and li to the tags ul
         groupCollectionHolder.append(newLinkGroupStage);
         playoffCollectionHolder.append(newLinkPlayoffStage);
@@ -71,11 +77,20 @@
             // Get the data-prototype we explained earlier
             var prototype = collectionHolder.attr('data-prototype');
 
+            var label = "";
+
+            if (type == 'group') {
+                label = "{{'fightmaster.tournaments_dashboard_bundle.stage.type.group' | trans}}";
+            } else if (type == 'playoff') {
+                label = "{{'fightmaster.tournaments_dashboard_bundle.stage.type.playoff' | trans}}";
+            }
+
             // Replace '$$name$$' in the prototype's HTML to
             // instead be a number based on the current collection's length.
             var newForm = prototype.replace(/__name__/g, idStage);
 
             link.before('<div id ="' + type + '_' + idStage + '">' + newForm + '<div class="link icon-remove"/></div>');
+            $('div#' + type + '_' + idStage + ' > div > label').remove();
 
             $('div#' + type + '_' + idStage + '>div.icon-remove').on('click', function(e) {
                 e.preventDefault();

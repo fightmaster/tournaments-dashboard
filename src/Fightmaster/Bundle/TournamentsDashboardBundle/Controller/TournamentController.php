@@ -85,11 +85,6 @@ class TournamentController extends Controller
             } else {
                 $this->getTournamentService()->save($tournament);
                 $flow->reset();
-                // flow finished
-                /*$em = $this->getDoctrine()->getEntityManager();
-                $em->persist($user);
-                $em->flush();*/
-                //$this->
                 return $this->redirect($this->generateUrl('tournament_show', array('id' => $tournament->getId())));
             }
         }
@@ -152,6 +147,7 @@ class TournamentController extends Controller
             } else {
                 $this->getTournamentService()->save($tournament);
                 $flow->reset();
+
                 return $this->redirect($this->generateUrl('tournament_edit', array('id' => $id)));
             }
 

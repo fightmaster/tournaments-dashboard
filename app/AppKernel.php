@@ -23,7 +23,8 @@ class AppKernel extends Kernel
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new Craue\FormFlowBundle\CraueFormFlowBundle(),
-            new Fightmaster\Bundle\BootstrapBundle\FightmasterBootstrapBundle()
+            new Fightmaster\Bundle\BootstrapBundle\FightmasterBootstrapBundle(),
+            new Fightmaster\Bundle\JQueryTranslitBundle\FightmasterJQueryTranslitBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

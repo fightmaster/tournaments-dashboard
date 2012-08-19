@@ -1,5 +1,5 @@
 {
-    "hash": "2e10836b0c4db7ec792216ff9bb6e60a",
+    "hash": "729a406c334358c0b3c4b0598b3eaccb",
     "packages": [
         {
             "package": "craue/formflow-bundle",
@@ -36,8 +36,14 @@
         {
             "package": "fightmaster/fightmaster-bootstrap-bundle",
             "version": "dev-master",
-            "source-reference": "294e63f0abd74754556f78ad3fdc8f1c0f27d8ed",
-            "commit-date": "1343757865"
+            "source-reference": "e18cbc8ae3327be35c95a3028c51c25b65eecaf0",
+            "commit-date": "1345376556"
+        },
+        {
+            "package": "fightmaster/fightmaster-jquery-translit-bundle",
+            "version": "dev-master",
+            "source-reference": "53a61daaec9c574839031ad4b415c30f8ae842e4",
+            "commit-date": "1345403627"
         },
         {
             "package": "jms/aop-bundle",
@@ -201,6 +207,7 @@
         "craue/formflow-bundle": 20,
         "knplabs/knp-paginator-bundle": 20,
         "knplabs/knp-menu-bundle": 20,
-        "fightmaster/fightmaster-bootstrap-bundle": 20
+        "fightmaster/fightmaster-bootstrap-bundle": 20,
+        "fightmaster/fightmaster-jquery-translit-bundle": 20
     }
 }

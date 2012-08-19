@@ -22,26 +22,9 @@
         "craue/formflow-bundle": "dev-master",
         "knplabs/knp-paginator-bundle": "dev-master",
         "knplabs/knp-menu-bundle": "dev-master",
-        "fightmaster/fightmaster-bootstrap-bundle": "dev-master"
+        "fightmaster/fightmaster-bootstrap-bundle": "dev-master",
+        "fightmaster/fightmaster-jquery-translit-bundle": "dev-master"
     },
-    "repositories": [
-        {
-            "type": "package",
-            "package": {
-                "version": "dev-master",
-                "name": "twitter/bootstrap",
-                "source": {
-                    "url": "https://github.com/twitter/bootstrap.git",
-                    "type": "git",
-                    "reference": "master"
-                },
-                "dist": {
-                    "url": "https://github.com/twitter/bootstrap/zipball/master",
-                    "type": "zip"
-                }
-            }
-        }
-    ],
     "scripts": {
         "post-install-cmd": [
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
