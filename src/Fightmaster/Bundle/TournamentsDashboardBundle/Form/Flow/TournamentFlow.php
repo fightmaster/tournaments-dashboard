@@ -9,7 +9,7 @@ class TournamentFlow extends FormFlow
     /**
      * @var int
      */
-    protected $maxSteps = 2;
+    protected $maxSteps = 3;
 
     /**
      * @var bool
@@ -22,8 +22,9 @@ class TournamentFlow extends FormFlow
     protected function loadStepDescriptions()
     {
         return array(
-            'tournaments_dashboard_bundle.tournament.form.flow.steps.tournament',
-            'tournaments_dashboard_bundle.tournament.form.flow.steps.stage'
+            'fightmaster.tournaments_dashboard_bundle.tournament.form.flow.steps.tournament',
+            'fightmaster.tournaments_dashboard_bundle.tournament.form.flow.steps.stage',
+            'fightmaster.tournaments_dashboard_bundle.tournament.form.flow.steps.stage'
         );
     }
 }

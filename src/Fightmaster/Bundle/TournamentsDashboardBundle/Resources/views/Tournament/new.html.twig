@@ -1,10 +1,10 @@
 {% extends 'FightmasterTournamentsDashboardBundle::base.html.twig' %}
-{% form_theme form 'MopaBootstrapBundle:Form:fields.html.twig' %}
+
 {% block fightmaster_tournaments_dashboard_content %}
 <h1>Tournament create</h1>
 <div>
     Steps:
-    {% include 'MopaBootstrapBundle:Form:formflow_stepList.html.twig' %}
+    {% include ':Form:formflow_stepList.html.twig' %}
 </div>
 <form id="test" action="{{ path('tournament_create') }}" method="post" {{ form_enctype(form) }}>
     {% include 'CraueFormFlowBundle:FormFlow:stepField.html.twig' with {'formident': '#test'} %}
@@ -25,27 +25,27 @@
 
     {{ form_rest(form) }}
 
-    {% include 'MopaBootstrapBundle:Form:formflow_buttons.html.twig' %}
+    {% include ':Form:formflow_buttons.html.twig' %}
 </form>
 
 <ul class="record_actions">
     <li>
         <a href="{{ path('tournament') }}">
-            Back to the list
+            {{'fightmaster.tournaments_dashboard_bundle.buttons.back' | trans}}
         </a>
     </li>
 </ul>
 {% endblock fightmaster_tournaments_dashboard_content %}
 
-{% block project_script %}
+{% block javascripts %}
 <script type="text/javascript">
     // Get the div that holds the collection of stages
     var groupCollectionHolder = $('div#fightmaster_bundle_tournamentsdashboardbundle_flow_tournamenttype_groupStages');
     var playoffCollectionHolder = $('div#fightmaster_bundle_tournamentsdashboardbundle_flow_tournamenttype_playoffStages');
     // setup an "add a tag" link
-    var addGroupStage = $('<a href="#" class="add_stage_link">Add a group stage</a>');
+    var addGroupStage = $('<a href="#" class="add_stage_link">{{'fightmaster.tournaments_dashboard_bundle.buttons.add.stage.group' | trans}}</a>');
     var newLinkGroupStage = $('<div></div>').append(addGroupStage);
-    var addPlayoffStage = $('<a href="#" class="add_stage_link">Add a playoff stage</a>');
+    var addPlayoffStage = $('<a href="#" class="add_stage_link">{{'fightmaster.tournaments_dashboard_bundle.buttons.add.stage.playoff' | trans}}</a>');
     var newLinkPlayoffStage = $('<div></div>').append(addPlayoffStage);
 
     jQuery(document).ready(function() {
@@ -57,27 +57,47 @@
 // prevent the link from creating a "#" on the URL
             e.preventDefault();
 // add a new tag form (see next code block)
-            addStageForm(groupCollectionHolder, newLinkGroupStage);
+            addStageForm(groupCollectionHolder, newLinkGroupStage, 'group');
         });
 
         addPlayoffStage.on('click', function(e) {
 // prevent the link from creating a "#" on the URL
             e.preventDefault();
 // add a new tag form (see next code block)
-            addStageForm(playoffCollectionHolder, newLinkPlayoffStage);
+            addStageForm(playoffCollectionHolder, newLinkPlayoffStage, 'playoff');
         });
-        function addStageForm(collectionHolder, $newLinkLi) {
+        function addStageForm(collectionHolder, link, type) {
+            var idStage = collectionHolder.children().length;
             // Get the data-prototype we explained earlier
             var prototype = collectionHolder.attr('data-prototype');
 
             // Replace '$$name$$' in the prototype's HTML to
             // instead be a number based on the current collection's length.
-            var newForm = prototype.replace(/__name__/g, collectionHolder.children().length);
+            var newForm = prototype.replace(/__name__/g, idStage);
 
-            // Display the form in the page in an li, before the "Add a tag" link li
-            var $newFormLi = $('<div></div>').append(newForm);
-            $newLinkLi.before($newFormLi);
+            link.before('<div id ="' + type + '_' + idStage + '">' + newForm + '<div class="link icon-remove"/></div>');
+
+            $('div#' + type + '_' + idStage + '>div.icon-remove').on('click', function(e) {
+                e.preventDefault();
+                removeStageForm(type, idStage);
+            });
+        }
+        function removeStageForm(type, idStage) {
+            $('div#' + type + '_' + idStage).remove();
         }
     });
+
+    jQuery(function() {
+        jQuery(function() {
+            jQuery("form{{ formident|default('') }} input").keypress(function (e) {
+                if ((e.which && e.which == 13) || (e.keyCode && e.keyCode == 13)) {
+                    jQuery('button[type=submit].primary').click();
+                    return false;
+                } else {
+                    return true;
+                }
+            });
+        });
+    });
 </script>
-{% endblock project_script%}
+{% endblock javascripts %}

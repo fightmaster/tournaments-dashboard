@@ -1,0 +1,9 @@
+{% if is_granted('ROLE_ADMIN') %}
+<div class="wel">
+    <div class="clearfix"><a href="#"></a></div>
+</div>
+{% endif %}
+
+<ul class="navbar">
+    <li><a href="http://ovg.sarsport.ru/files/results.xls"><p class="navbar_item navbar_results">{{ 'stay-alive.menu-left.results' | trans }}</p></a></li>
+</ul>

@@ -19,11 +19,10 @@
         "jms/security-extra-bundle": "1.1.*",
         "jms/di-extra-bundle": "1.0.*",
         "fightmaster/dao": "1.*",
-        "mopa/bootstrap-bundle": "dev-master",
         "craue/formflow-bundle": "dev-master",
         "knplabs/knp-paginator-bundle": "dev-master",
         "knplabs/knp-menu-bundle": "dev-master",
-        "twitter/bootstrap": "master"
+        "fightmaster/fightmaster-bootstrap-bundle": "dev-master"
     },
     "repositories": [
         {

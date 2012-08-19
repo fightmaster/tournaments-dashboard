@@ -1,51 +1,91 @@
-{% extends 'MopaBootstrapBundle::base.html.twig' %}
-
-{% block head_style %}
-{% stylesheets filter='cssrewrite,?yui_css'
-   '@MopaBootstrapBundle/Resources/bootstrap/docs/assets/css/bootstrap.css'
+{% from '::flash.html.twig' import session_flash %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="{% block keywords %}{% endblock keywords %}">
+    <title>{% block title %} {{ 'brand.name'|trans }} {% block sub_title %}{% endblock %} {% endblock %}</title>
+    {% stylesheets filter='cssrewrite,?yui_css'
+   'bundles/fightmasterbootstrap/css/bootstrap.css'
+   'bundles/fightmasterbootstrap/css/bootstrap-responsive.css'
    '@CraueFormFlowBundle/Resources/assets/css/buttons.css'
-%}
-<link href="{{ asset_url }}" type="text/css" rel="stylesheet"
-      media="screen" />
-{% endstylesheets %}
-{% endblock head_style %}
-{% block navbar %}
-{% endblock navbar %}
-{% block content %}
-<div class="span9">
-    {% block content_body %} {% endblock content_body %}
+    %}
+    <link href="{{ asset_url }}" type="text/css" rel="stylesheet" media="screen" />
+    {% endstylesheets %}
+    {% block stylesheets %}{% endblock %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block favicon %}<link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon" />{% endblock %}
+    <!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    </head>
+<body>
+{% block body %}
+{% block topbar %}{% include '::topbar.html.twig' %}{% endblock %}
+{% block topbanner %}{% include '::topbanner.html.twig' %}{% endblock %}
+{% block container %}
+<div class="container-fluid">
+    <div class="row-fluid" id="main-container">
+        <div class="span12">
+            <div class="row-fluid">
+                {% block sidebar %}
+                <div class="span2 page-sidebar-left" id="page-sidebar">
+                    {% block leftMenu %}
+                    {% include '::navbar.html.twig' %}
+                    {% endblock %}
+                </div>
+                {% endblock %}
+                {% block centerBar %}
+                <div class="span7 page-content" id="page-content">
+                    <div id="main_column">
+                        {% block flashes %}
+                        {% if app.session.flashbag.peekAll|length > 0 %}
+                        <div class="row-fluid">
+                            <div class="span7">
+                                {{ session_flash() }}
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% endblock flashes %}
+                        {% block content %}{% endblock %}
+                    </div>
+                </div>
+                {% endblock %}
+                {% block sidebar_right %}
+                <div class="span3 page-sidebar-right">right
+                </div>
+                {% endblock %}
+
+                <footer>
+                    {% block footer %}
+                    <p>&copy; <a href="http://github.com/fightmaster" target="_blank">fightmaster</a> 2012</p>
+                    {% endblock footer %}
+                </footer>
+            </div>
+        </div>
+    </div>
 </div>
-<div class="span3">
-    {% block content_sidebar %}
-    <h2>Sidebar</h2>
-    {% endblock content_sidebar %}
-</div>
-{% endblock%}
+{% endblock %}
+{% endblock %}
 {% block foot_script %}
-{# To only use a subset or add more js overwrite and copy paste this block
-To speed up page loads save a copy of jQuery in your project and override this block to include the correct path
-Otherwise the regeneration is done on every load in dev more with use_controller: true
- #}
 {% javascripts
-        'http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'
-        '@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-transition.js'
-        '@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-modal.js'
-        '@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-dropdown.js'
-        '@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-scrollspy.js'
-        '@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-tab.js'
-        '@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-tooltip.js'
-        '@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-popover.js'
-        '@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-alert.js'
-        '@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-button.js'
-        '@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-collapse.js'
-        '@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-carousel.js'
-        '@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-typeahead.js'
-        '@MopaBootstrapBundle/Resources/public/js/mopabootstrap-collection.js'
-        '@MopaBootstrapBundle/Resources/public/js/mopabootstrap-subnav.js'
+        'http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'
+        '@FightmasterBootstrapBundle/Resources/public/js/bootstrap-transition.js'
+        '@FightmasterBootstrapBundle/Resources/public/js/bootstrap-modal.js'
+        '@FightmasterBootstrapBundle/Resources/public/js/bootstrap-dropdown.js'
+        '@FightmasterBootstrapBundle/Resources/public/js/bootstrap-scrollspy.js'
+        '@FightmasterBootstrapBundle/Resources/public/js/bootstrap-tab.js'
+        '@FightmasterBootstrapBundle/Resources/public/js/bootstrap-tooltip.js'
+        '@FightmasterBootstrapBundle/Resources/public/js/bootstrap-popover.js'
+        '@FightmasterBootstrapBundle/Resources/public/js/bootstrap-alert.js'
+        '@FightmasterBootstrapBundle/Resources/public/js/bootstrap-button.js'
+        '@FightmasterBootstrapBundle/Resources/public/js/bootstrap-collapse.js'
+        '@FightmasterBootstrapBundle/Resources/public/js/bootstrap-carousel.js'
+        '@FightmasterBootstrapBundle/Resources/public/js/bootstrap-typeahead.js'
     %}
 <script type="text/javascript" src="{{ asset_url }}"></script>
 {% endjavascripts %}
-
-{% block project_script %}{% endblock project_script%}
-
 {% endblock foot_script %}
+{% block javascripts %}{% endblock %}
+{#{% include '::counters.html.twig' %}#}
+</body>
+</html>
+

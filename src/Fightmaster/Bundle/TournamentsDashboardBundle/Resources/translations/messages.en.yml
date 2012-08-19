@@ -1,17 +1,31 @@
 fightmaster:
     tournaments_dashboard_bundle:
         tournament:
+            name: 'Tournament Name'
+            slug: 'Tournament Slug'
+            limit_of_members: 'Limit of Members'
+            donation: 'Donation'
             form:
                 flow:
                     steps:
-                        tournament: Create Tournament
-                        stage: Create Tournament Stage
+                        tournament: 'Create Tournament'
+                        stage: 'Create Tournament Stage'
         stage:
-            name: Stage Name
+            name: 'Stage Name'
             number: Number
             type:
                 group: Group
                 playoff: Playoff
-            limit_of_members: Limit of Members
+            limit_of_members: 'Limit of Members'
             laps: Laps
-
+        buttons:
+            remove: Remove
+            add:
+                stage:
+                    group: Add a group stage
+                    playoff: Add a playoff stage
+            back: Back to the list
+            create: Create
+            edit: Edit
+            delete: Delete
+            show: Show

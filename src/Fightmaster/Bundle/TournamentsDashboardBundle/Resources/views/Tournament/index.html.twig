@@ -5,29 +5,25 @@
 <table class="records_list">
     <thead>
         <tr>
-            <th>Name</th>
-            <th>Slug</th>
-            <th>Limitofmembers</th>
-            <th>Donation</th>
-            <th>Id</th>
-            <th>Actions</th>
+            <th>{{'fightmaster.tournaments_dashboard_bundle.tournament.name' | trans}}</th>
+            <th>{{'fightmaster.tournaments_dashboard_bundle.tournament.limit_of_members' | trans}}</th>
+            <th>{{'fightmaster.tournaments_dashboard_bundle.tournament.donation' | trans}}</th>
+            <th>&nbsp;</th>
         </tr>
     </thead>
     <tbody>
     {% for tournament in tournaments %}
         <tr>
             <td><a href="{{ path('tournament_show', { 'id': tournament.id }) }}">{{ tournament.name }}</a></td>
-            <td>{{ tournament.slug }}</td>
             <td>{{ tournament.limitOfMembers }}</td>
             <td>{{ tournament.donation }}</td>
-            <td>{{ tournament.id }}</td>
             <td>
                 <ul>
                     <li>
-                        <a href="{{ path('tournament_show', { 'id': tournament.id }) }}">show</a>
+                        <a href="{{ path('tournament_show', { 'id': tournament.id }) }}">{{'fightmaster.tournaments_dashboard_bundle.buttons.show' | trans}}</a>
                     </li>
                     <li>
-                        <a href="{{ path('tournament_edit', { 'id': tournament.id }) }}">edit</a>
+                        <a href="{{ path('tournament_edit', { 'id': tournament.id }) }}">{{'fightmaster.tournaments_dashboard_bundle.buttons.edit' | trans}}</a>
                     </li>
                 </ul>
             </td>
@@ -39,7 +35,7 @@
 <ul>
     <li>
         <a href="{{ path('tournament_new') }}">
-            Create a new entry
+            {{'fightmaster.tournaments_dashboard_bundle.buttons.create' | trans}}
         </a>
     </li>
 </ul>

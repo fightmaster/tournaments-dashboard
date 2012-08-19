@@ -1,16 +1,31 @@
 fightmaster:
     tournaments_dashboard_bundle:
         tournament:
+            name: Название
+            slug: 'Slug турнира'
+            limit_of_members: 'Кол-во участников'
+            donation: 'Взнос'
             form:
                 flow:
                     steps:
-                        tournament: Создание турнира
-                        stage: Создание стадии турнира
+                        tournament: 'Создание турнира'
+                        stage: 'Создание стадии турнира'
         stage:
             name: Название
             number: Номер
             type:
                 group: Группа
                 playoff: Плейофф
-            limit_of_members: Кол-во участников
+            limit_of_members: 'Кол-во участников'
             laps: Круги
+        buttons:
+            remove: Удалить
+            add:
+                stage:
+                    group: Добавить группу
+                    playoff: Добавить плейофф
+            back: Вернуться назад к списку
+            create: Создать
+            edit: Редактировать
+            delete: Удалить
+            show: Показать

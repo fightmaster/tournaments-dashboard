@@ -16,10 +16,10 @@ class TournamentType extends AbstractType
         switch ($options['flowStep']) {
             case 1:
                 $builder
-                    ->add('name')
-                    ->add('slug')
-                    ->add('limitOfMembers')
-                    ->add('donation');
+                    ->add('name', null, array('label' => 'fightmaster.tournaments_dashboard_bundle.tournament.name'))
+                    ->add('slug', null, array('label' => 'fightmaster.tournaments_dashboard_bundle.tournament.slug'))
+                    ->add('limitOfMembers', null, array('label' => 'fightmaster.tournaments_dashboard_bundle.tournament.limit_of_members'))
+                    ->add('donation', null, array('label' => 'fightmaster.tournaments_dashboard_bundle.tournament.donation'));
                 break;
             case 2:
                 $builder->add('playoffStages', 'collection', array(
@@ -27,13 +27,17 @@ class TournamentType extends AbstractType
                     'allow_add' => true,
                     'allow_delete' => true,
                     'by_reference' => false,
+                    'label' => 'fightmaster.tournaments_dashboard_bundle.stage.type.playoff'
                     ));
                 $builder->add('groupStages', 'collection', array(
                     'type' => new GroupStageType(),
                     'allow_add' => true,
                     'allow_delete' => true,
                     'by_reference' => false,
+                    'label' => 'fightmaster.tournaments_dashboard_bundle.stage.type.group'
                 ));
+                break;
+            case 3:
                 break;
         }
     }

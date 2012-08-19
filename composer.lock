@@ -1,11 +1,11 @@
 {
-    "hash": "d6624d754c960d163fe057b6cb17eaca",
+    "hash": "2e10836b0c4db7ec792216ff9bb6e60a",
     "packages": [
         {
             "package": "craue/formflow-bundle",
             "version": "dev-master",
-            "source-reference": "236a77a3af685f2662aafd48ad5ab58e23697426",
-            "commit-date": "1342177956"
+            "source-reference": "ffea2781dcbc13ad2a4b0be301a952b72770f405",
+            "commit-date": "1343462962"
         },
         {
             "package": "doctrine/common",
@@ -14,24 +14,30 @@
         {
             "package": "doctrine/dbal",
             "version": "2.2.x-dev",
-            "source-reference": "b961a3fce6bf220f1dca47d7d747b9074bea4730",
-            "commit-date": "1341779435"
+            "source-reference": "da4b7b4d965db0c1c1d23333e87ee5ae8994e249",
+            "commit-date": "1344978731"
         },
         {
             "package": "doctrine/doctrine-bundle",
             "version": "dev-master",
-            "source-reference": "62134e6a8dd3f330131ee6a970f0cee1d7760c1d",
-            "commit-date": "1343203511"
+            "source-reference": "4d9bb0f3af470556983eb41a7d19ede23401ef0b",
+            "commit-date": "1344549563"
         },
         {
             "package": "doctrine/orm",
             "version": "2.2.x-dev",
-            "source-reference": "5d2a3bcb3b467f41ee58575764f3ba84937f76e4",
-            "commit-date": "1341676080"
+            "source-reference": "7d343302a8f886be9cfb2a9c8345a95740dcfde9",
+            "commit-date": "1343560954"
         },
         {
             "package": "fightmaster/dao",
             "version": "1.0.0"
+        },
+        {
+            "package": "fightmaster/fightmaster-bootstrap-bundle",
+            "version": "dev-master",
+            "source-reference": "294e63f0abd74754556f78ad3fdc8f1c0f27d8ed",
+            "commit-date": "1343757865"
         },
         {
             "package": "jms/aop-bundle",
@@ -68,20 +74,20 @@
         {
             "package": "knplabs/knp-menu",
             "version": "dev-master",
-            "source-reference": "418788056ba5b95f4a2717ba5b4d4ab078aca4ab",
-            "commit-date": "1340209324"
+            "source-reference": "5b7d34e58c2d51b30005b69eeded9fb658fe8abf",
+            "commit-date": "1343985848"
         },
         {
             "package": "knplabs/knp-menu-bundle",
             "version": "dev-master",
-            "source-reference": "ba1ff625e4b34131106e12ee475eb6397eb5a758",
-            "commit-date": "1341324163"
+            "source-reference": "4389efdd5c30d974544afbfe5ada3a4ce30d7aa1",
+            "commit-date": "1344013797"
         },
         {
             "package": "knplabs/knp-paginator-bundle",
             "version": "dev-master",
-            "source-reference": "427db8350ae57659645ba35480bbe1194c1c695f",
-            "commit-date": "1339165136"
+            "source-reference": "de439d2816fe984dbe0c438fd4d0d7c67748c5ff",
+            "commit-date": "1343676956"
         },
         {
             "package": "kriswallsmith/assetic",
@@ -92,60 +98,30 @@
         {
             "package": "kriswallsmith/assetic",
             "version": "dev-master",
-            "source-reference": "c518a48ddc26af898191410cc35f7f30aaed448e",
-            "commit-date": "1343084248"
+            "source-reference": "d1d5066d9071a76d771993081ee23137e96216b7",
+            "commit-date": "1344507381"
         },
         {
             "package": "monolog/monolog",
-            "version": "1.1.0"
-        },
-        {
-            "package": "mopa/bootstrap-bundle",
-            "version": "dev-master",
-            "alias-pretty-version": "2.1.x-dev",
-            "alias-version": "2.1.9999999.9999999-dev"
-        },
-        {
-            "package": "mopa/bootstrap-bundle",
-            "version": "dev-master",
-            "source-reference": "d5dd68b0c796a3ae81cb8ab8a249f39e1a57a4d0",
-            "commit-date": "1343250288"
-        },
-        {
-            "package": "mopa/composer-bridge",
-            "version": "dev-master",
-            "source-reference": "84b8bf537163b4470f14d02554a0e9eb5d300172",
-            "commit-date": "1337596733"
+            "version": "1.2.0"
         },
         {
             "package": "sensio/distribution-bundle",
             "version": "dev-master",
-            "source-reference": "5886adae1613c0a72fbb95259a83ae798e86c0d3",
-            "commit-date": "1342347850"
+            "source-reference": "bd98b5fb0e4a5dddb4f7acd2e11f28c4cd7eacee",
+            "commit-date": "1345139690"
         },
         {
             "package": "sensio/framework-extra-bundle",
             "version": "dev-master",
-            "alias-pretty-version": "2.1.x-dev",
-            "alias-version": "2.1.9999999.9999999-dev"
-        },
-        {
-            "package": "sensio/framework-extra-bundle",
-            "version": "dev-master",
-            "source-reference": "875a192ca7633ca64150de72641d7b9ed8284fdd",
-            "commit-date": "1343324904"
+            "source-reference": "ade2d53b20a9fc3428f04c863b3fd4fca0b62181",
+            "commit-date": "1344072374"
         },
         {
             "package": "sensio/generator-bundle",
             "version": "dev-master",
-            "alias-pretty-version": "2.1.x-dev",
-            "alias-version": "2.1.9999999.9999999-dev"
-        },
-        {
-            "package": "sensio/generator-bundle",
-            "version": "dev-master",
-            "source-reference": "4436c2e24301123fb413baf3f78cd93bbc016c07",
-            "commit-date": "1343291371"
+            "source-reference": "d8fc1666f3cdb403f1b2d4320c45ddd6adbdf6a5",
+            "commit-date": "1343980150"
         },
         {
             "package": "swiftmailer/swiftmailer",
@@ -156,25 +132,25 @@
         {
             "package": "swiftmailer/swiftmailer",
             "version": "dev-master",
-            "source-reference": "8b2aa953f87da228ba413e8fb1372e49c1374050",
-            "commit-date": "1342198037"
+            "source-reference": "19045c3692f6f6ddb4abc5ebfaf3f86f1c57d265",
+            "commit-date": "1343980916"
         },
         {
             "package": "symfony/assetic-bundle",
             "version": "dev-master",
-            "source-reference": "a5daf7ca4588f88105c808de9a28ba1e66bfa082",
-            "commit-date": "1343161458"
+            "source-reference": "ec3a65d3eab342af9e93a3c21af0ac7b78e01c17",
+            "commit-date": "1344507386"
         },
         {
             "package": "symfony/monolog-bundle",
             "version": "dev-master",
-            "source-reference": "v2.1.0-BETA4",
-            "commit-date": "1341078487"
+            "source-reference": "aed4d742838d2a7350633fed7afe18dbfd3415de",
+            "commit-date": "1344949802"
         },
         {
             "package": "symfony/swiftmailer-bundle",
             "version": "dev-master",
-            "source-reference": "v2.1.0-BETA4",
+            "source-reference": "v2.1.0-RC1",
             "commit-date": "1342684512"
         },
         {
@@ -186,8 +162,8 @@
         {
             "package": "symfony/symfony",
             "version": "dev-master",
-            "source-reference": "e1c65fa9c0330f9dfc44355112c7c63bd1fd3b14",
-            "commit-date": "1343312182"
+            "source-reference": "ef29276c3a1d6ab757d894bd64391fa2ea47db0c",
+            "commit-date": "1345367019"
         },
         {
             "package": "twig/extensions",
@@ -204,14 +180,8 @@
         {
             "package": "twig/twig",
             "version": "dev-master",
-            "source-reference": "657de7bdeb680815e0df95f63da9f81e1533d2ea",
-            "commit-date": "1342953178"
-        },
-        {
-            "package": "twitter/bootstrap",
-            "version": "dev-master",
-            "source-reference": "master",
-            "commit-date": "1339090286"
+            "source-reference": "3e4057b4b14a2f90db7c895e3e9bcbd3d23875e8",
+            "commit-date": "1345222881"
         }
     ],
     "packages-dev": null,
@@ -228,9 +198,9 @@
         "sensio/distribution-bundle": 20,
         "sensio/framework-extra-bundle": 20,
         "sensio/generator-bundle": 20,
-        "mopa/bootstrap-bundle": 20,
         "craue/formflow-bundle": 20,
         "knplabs/knp-paginator-bundle": 20,
-        "knplabs/knp-menu-bundle": 20
+        "knplabs/knp-menu-bundle": 20,
+        "fightmaster/fightmaster-bootstrap-bundle": 20
     }
 }

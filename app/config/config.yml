@@ -4,11 +4,11 @@ imports:
 
 framework:
     #esi:             ~
-    #translator:      { fallback: %locale% }
+    translator:      { fallback: %locale% }
     secret:          %secret%
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
-        strict_parameters: %kernel.debug%
+        strict_requirements: %kernel.debug%
     form:            true
     csrf_protection: true
     validation:      { enable_annotations: true }
@@ -26,7 +26,7 @@ twig:
 assetic:
     debug:          %kernel.debug%
     use_controller: false
-    bundles:        [MopaBootstrapBundle,FightmasterTournamentsDashboardBundle]
+    bundles:        [FightmasterTournamentsDashboardBundle,FightmasterBootstrapBundle]
     #java: /usr/bin/java
     filters:
         cssrewrite: ~
@@ -57,24 +57,3 @@ swiftmailer:
     username:  %mailer_user%
     password:  %mailer_password%
     spool:     { type: memory }
-
-mopa_bootstrap:
-    navbar: ~
-    form:
-        templating: false # default is true
-        render_fieldset: false # default is true
-        show_legend: false # default is true
-        show_child_legend: false # default is false
-        render_required_asterisk: false # default is true
-        error_type: null # default is null
-        collection:
-            widget_remove_btn:
-                attr:
-                    class: btn
-                icon: null
-                icon_color: null
-            widget_add_btn:
-                attr:
-                    class: btn
-                icon: null
-                icon_color: null
