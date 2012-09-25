@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+
+<!--
+ This file is part of the SarSportApplicationBundle package.
+
+ (c) Dmitry Petrov aka fightmaster <old.fightmaster@gmail.com>
+
+ This source file is subject to the MIT license that is bundled
+ with this source code in the file LICENSE.
+-->
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="fightmaster_teams.manager.country.class">Fightmaster\Model\Manager\DoctrineManager</parameter>
+        <parameter key="fightmaster_teams.manager.player.class">Fightmaster\Model\Manager\DoctrineManager</parameter>
+        <parameter key="fightmaster_teams.manager.team.class">Fightmaster\Model\Manager\DoctrineManager</parameter>
+        <parameter key="fightmaster_teams.entity.country.class">FightmasterTeamsBundle:Country</parameter>
+        <parameter key="fightmaster_teams.entity.team.class">FightmasterTeamsBundle:Team</parameter>
+        <parameter key="fightmaster_teams.entity.player.class">FightmasterTeamsBundle:Player</parameter>
+
+    </parameters>
+
+    <services>
+        <service id="fightmaster_teams.entity_manager" factory-service="doctrine" factory-method="getEntityManager" class="Doctrine\ORM\EntityManager" public="false">
+            <argument>default</argument>
+        </service>
+
+        <service id="fightmaster_teams.manager.team" class
+                ="%fightmaster_teams.manager.team.class%">
+            <argument type="service" id="fightmaster_teams.entity_manager" />
+            <argument>%fightmaster_teams.entity.team.class%</argument>
+        </service>
+        <service id="fightmaster_teams.manager.country" class="%fightmaster_teams.manager.country.class%">
+            <argument type="service" id="fightmaster_teams.entity_manager" />
+            <argument>%fightmaster_teams.entity.country.class%</argument>
+        </service>
+        <service id="fightmaster_teams.manager.player" class="%fightmaster_teams.manager.player.class%">
+            <argument type="service" id="fightmaster_teams.entity_manager" />
+            <argument>%fightmaster_teams.entity.player.class%</argument>
+        </service>
+    </services>
+</container>

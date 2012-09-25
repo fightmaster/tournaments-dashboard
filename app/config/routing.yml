@@ -1,3 +1,7 @@
+FightmasterTeamsBundle:
+    resource: "@FightmasterTeamsBundle/Resources/config/routing.xml"
+    prefix:   /
+
 FightmasterTournamentsDashboardBundle:
     resource: "@FightmasterTournamentsDashboardBundle/Resources/config/routing.yml"
     prefix:   /

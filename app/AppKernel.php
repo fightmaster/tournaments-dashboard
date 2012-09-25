@@ -24,7 +24,8 @@ class AppKernel extends Kernel
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new Craue\FormFlowBundle\CraueFormFlowBundle(),
             new Fightmaster\Bundle\BootstrapBundle\FightmasterBootstrapBundle(),
-            new Fightmaster\Bundle\JQueryTranslitBundle\FightmasterJQueryTranslitBundle()
+            new Fightmaster\Bundle\JQueryTranslitBundle\FightmasterJQueryTranslitBundle(),
+            new Fightmaster\Bundle\TeamsBundle\FightmasterTeamsBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
