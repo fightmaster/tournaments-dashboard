@@ -16,9 +16,6 @@
         <index name="tournament_slug_idx" columns="slug"/>
     </indexes>
     <lifecycle-callbacks/>
-      <indexes>
-          <index name="tournament_slug_idx" columns="slug"/>
-      </indexes>
     <unique-constraints>
         <unique-constraint name="tournament_fk_name" columns="name"/>
         <unique-constraint name="tournament_fk_slug" columns="slug"/>
